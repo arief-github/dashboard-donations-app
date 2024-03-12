@@ -43,7 +43,7 @@ js" defer></script>
                     <img class="w-6 h-6" src="{{ asset('icon/dashIcon.svg') }}" alt="Icon Dashboard"/>
                     <span class="mx-3">Dashboard</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer">
+                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer {{ Request::is('admin.category*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" href="{{ route('admin.category.index') }}">
                     <img class="w-6 h-6" src="{{ asset('icon/kategorIcon.svg') }}" alt="Icon Kategory">
                     <span class="mx-3">Kategori</span>
                 </a>
@@ -124,5 +124,6 @@ js" defer></script>
 
     @endif
 </script>
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
 </body>
 </html>

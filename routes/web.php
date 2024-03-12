@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,5 +24,7 @@ Route::prefix('admin')->group(function() {
         Route::get('/dashboard', function() {
             return view('admin.dashboard.index');
         });
+
+        Route::resource('/category', CategoryController::class, ['as' => 'admin']);
     });
 });
