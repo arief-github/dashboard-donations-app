@@ -43,7 +43,9 @@ js" defer></script>
                     <img class="w-6 h-6" src="{{ asset('icon/dashIcon.svg') }}" alt="Icon Dashboard"/>
                     <span class="mx-3">Dashboard</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer {{ Request::is('admin.category*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" href="{{ route('admin.category.index') }}">
+                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer 
+                    {{ Request::is('admin.category*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" 
+                    href="{{ route('admin.category.index') }}">
                     <img class="w-6 h-6" src="{{ asset('icon/kategorIcon.svg') }}" alt="Icon Kategory">
                     <span class="mx-3">Kategori</span>
                 </a>
@@ -63,7 +65,9 @@ js" defer></script>
                     <img class="w-6 h-6" src="{{ asset('icon/profile.svg') }}" alt="Icon Profile">
                     <span class="mx-3">Profil Saya</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer">
+                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer
+                    {{ Request::is('admin/slider*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}
+                " href="{{ route('admin.slider.index') }}">
                     <img class="w-6 h-6" src="{{ asset('icon/sliders.svg') }}" alt="Icon Sliders">
                     <span class="mx-3">Sliders</span>
                 </a>
