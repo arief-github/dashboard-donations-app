@@ -1,8 +1,10 @@
 <?php
+namespace App\Http\Controllers\Api;
 
-namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Models\Slider;
+use Illuminate\Http\Request;
+
 class SliderController extends Controller
 {
     /**
@@ -12,7 +14,15 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        // get data sliders
+        $slider = Slider::latest()->get();
+
+        // return with JSON Response
+        return response()->json([
+            'success' => true,
+            'message' => 'List Data Sliders',
+            'data' => $slider
+        ], 200);
     }
 
     /**
