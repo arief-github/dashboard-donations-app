@@ -37,7 +37,15 @@
                 </div>
 
                 <div class="flex justify-start mt-4">
-                    <button type="submit" class="px-4 py-2 bg-gray-600 text-gray-200 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">UPLOAD</button>
+                    <button
+                    type="submit"
+                    class="px-4 py-2 bg-gray-600 text-gray-200 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                    x-data="{loading:false}"
+                    x-on:click="loading=true; document.getElementById('form').submit();"
+                    x-html="loading ? `Mohon Tunggu ...` : 'UPLOAD'" class="disabled:opacity-50"
+                    x-bind:disabled="loading">
+                    UPLOAD
+                </button>
                 </div>
             </form>
         </div>
@@ -63,7 +71,7 @@
                             <tr class="border bg-white">
         
                                 <td class="px-16 py-2 flex justify-center">
-                                    <img src="{{ $slider->image }}" class="object-fit-cover rounded" style="width: 35%">
+                                    <img src="{{ asset('storage/sliders/' . $slider->image) }}" alt="{{ $slider->image }}" class="object-fit-cover rounded" style="width: 35%">
                                 </td>
                                 <td class="px-16 py-2">
                                     {{ $slider->link }}
