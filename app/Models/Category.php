@@ -13,6 +13,14 @@ class Category extends Model
         'name' , 'slug', 'image'
     ];
 
+     /**
+     * Relation One to Many Inverse with Campaign
+     * 
+     */
+    public function campaigns() {
+        return $this->hasMany(Campaign::class);
+    }
+
     /**
      * getImageAttribute
      */
