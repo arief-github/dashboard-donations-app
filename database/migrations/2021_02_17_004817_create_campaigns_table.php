@@ -22,7 +22,7 @@ class CreateCampaignsTable extends Migration
             $table->date('max_date');
             $table->text('description');
             $table->string('image');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

@@ -22,6 +22,14 @@ class Campaign extends Model
      ];
 
      /**
+      * Relation with User
+      */
+      public function user()
+      {
+        return $this->belongsTo(User::class);
+      }
+
+     /**
       * 
       * Relation with Category
       */
@@ -42,4 +50,14 @@ class Campaign extends Model
        {
             return asset('storage/campaigns/'. $image);   
        }
-}
+
+       /**
+        * sumDonation
+        */
+       public function sumDonation()
+       {
+          return $this->hasMany(Donation::class)->selectRaw('donations.campaign_id, SUM(donations.amount) as total')
+          ->where('donation.status', 'success')->groupBy('donations.campaign_id');
+       }
+
+} 

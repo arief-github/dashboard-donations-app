@@ -37,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Campaigns relation
+     */
+
+     public function campaigns()
+     {
+        return $this->hasMany(Campaign::class);
+     }
 }
