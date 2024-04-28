@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CampaignController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\SliderController;
+use App\Http\Controllers\Api\DonationController;
+use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\Api\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /**
+ * API Register
+ */
+
+ Route::post('/register', [RegisterController::class, 'register']);
+
+ /**
+  * API Login
+  */
+ Route::post('/login', [LoginController::class, 'login']);
+
+/**
  * API Category
  */
  Route::get('/categories',[CategoryController::class, 'index']);
@@ -31,6 +45,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /**
  * API Donation
  */
+Route::get('/donation', [DonationController::class, 'index'])->middleware('auth.api');
+Route::post('/donation', [DonationController::class, 'store'])->middleware('auth.api');
+Route::post('/donation/notification', [DonationController::class, 'notificationHandler']);
+
 Route::get('/campaign', [CampaignController::class, 'index']);
 Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
 
