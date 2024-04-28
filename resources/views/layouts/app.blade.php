@@ -60,21 +60,26 @@ js" defer></script>
 
                     <span class="mx-3">Campaigns</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer">
-                    <img class="w-6 h-6" src="{{ asset('icon/donaturIcon.svg') }}" alt="Donatur Icon">
+                <a hx-boost="true" class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer 
+                    {{ Request::is('admin.donatur*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" 
+                    href="{{ route('admin.donatur.index') }}">
+                    <img class="w-6 h-6" src="{{ asset('icon/donaturIcon.svg') }}" alt="Icon Donatur">
                     <span class="mx-3">Donatur</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer">
+                <a hx-boost="true" class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer 
+                    {{ Request::is('admin.donation*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" 
+                    href="{{ route('admin.donation.index') }}">
                     <img class="w-6 h-6" src="{{ asset('icon/donationIcon.svg') }}" alt="Icon Donation">
-                    <span class="mx-3">Donations</span>
+                    <span class="mx-3">Donasi</span>
                 </a>
-                <a class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer">
-                    <img class="w-6 h-6" src="{{ asset('icon/profile.svg') }}" alt="Icon Profile">
+                <a hx-boost="true" class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer 
+                    {{ Request::is('admin.profile*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" 
+                    href="{{ route('admin.profile.index') }}">
+                    <img class="w-6 h-6" src="{{ asset('icon/profile.svg') }}" alt="Icon Kategory">
                     <span class="mx-3">Profil Saya</span>
-                </a>
+                 </a>
                 <a hx-boost="true" class="flex items-center mt-4 py-2 px-6 hover:bg-opacity-25 hover:text-gray-100 cursor-pointer
-                    {{ Request::is('admin/slider*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}
-                " href="{{ route('admin.slider.index') }}">
+                    {{ Request::is('admin/slider*') ? 'bg-gray-700 bg-opacity-25 text-gray-100' : 'text-gray-500' }}" href="{{ route('admin.slider.index') }}">
                     <img class="w-6 h-6" src="{{ asset('icon/sliders.svg') }}" alt="Icon Sliders">
                     <span class="mx-3">Sliders</span>
                 </a>
