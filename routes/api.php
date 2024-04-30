@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\SliderController;
 use App\Http\Controllers\Api\DonationController;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  Route::get('/categories',[CategoryController::class, 'index']);
  Route::get('/category/{slug}',[CategoryController::class, 'show']);
  Route::get('/category-home',[CategoryController::class, 'categoryHome']);
+
+/**
+ * 
+ * API Profile
+ */
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth:api');
+Route::post('/profile', [ProfileController::class, 'update'])->middleware('auth:api');
+Route::post('/profile/change-password', [ProfileController::class, 'updatePassword'])->middleware('auth:api');
 
 /**
  * API Donation
